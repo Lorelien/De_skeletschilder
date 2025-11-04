@@ -1,0 +1,93 @@
+body {
+  margin: 0;
+  background-color: #000;
+  font-family: sans-serif;
+  text-align: center;
+}
+
+#startScreen {
+  background-image: url(de\ skeletschilder.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: #111;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+#startScreen button {
+  font-size: 2em;
+  padding: 20px 40px;
+  cursor: pointer;
+}
+
+#introVideo {
+  width: 100vw;       /* Volledige breedte van het scherm */
+  height: auto;       /* Houdt de verhouding correct */
+  max-height: 100vh;  /* Zorgt dat het niet hoger is dan het scherm */
+  object-fit: contain; /* Zorgt dat de video netjes binnen het kader blijft */
+  display: block;
+  margin: 0 auto;
+}
+
+#introScreen, #mainScreen, #overlay {
+  display: none;
+}
+
+#introScreen video {
+  width: 100%;
+  height: auto;
+}
+
+#mainScreen {
+  position: relative;
+  max-width: 1000px;
+  margin: auto;
+}
+
+#mainImage {
+  width: 100%;
+  display: block;
+}
+
+.bol {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background-color: white;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(255,255,255,0.8);
+}
+
+#overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.95);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 999;
+}
+
+#overlay img {
+  width: 60%;
+  max-width: 600px;
+  margin-bottom: 20px;
+}
+
+#overlay video {
+  width: 80%;
+  max-width: 800px;
+}
+
+#overlay audio {
+  margin-top: 20px;
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>De Skeletschilder</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Startscherm -->
+  <div id="startScreen">
+    <button onclick="startIntro()">Start</button>
+  </div>
+
+  <!-- Introductievideo en audio -->
+<div id="introScreen">
+  <video id="introVideo" src="video-audio/video_skeletschilder.mp4"></video>
+  <audio id="introAudio" src="video-audio/audio_skeletschilder.mp3"></audio>
+</div>
+
+
+  <!-- Skeletschilder met bollen -->
+  <div id="mainScreen">
+    <img src="de skeletschilder.png" alt="De Skeletschilder" id="mainImage">
+    <div class="bol" style="top: 30%; left: 10%;" onclick="toonUitleg('video1.mp4', 'video-audio/audio02_havenvanoostende.mp3')"></div>
+    <div class="bol" style="top: 10%; left: 60%;" onclick="toonUitleg('video2.mp4', 'video-audio/audio03_azalea.mp3')"></div>
+    <div class="bol" style="top: 65%; left: 15%;" onclick="toonUitleg('video3.mp4', 'video-audio/audio04_maskers.mp3')"></div>
+  </div>
+
+  <!-- Overlay voor uitleg -->
+  <div id="overlay">
+    <img id="schilderijZoom" src="" alt="Vergroot schilderij">
+    <video id="video" controls></video>
+    <audio id="audio" autoplay></audio>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
