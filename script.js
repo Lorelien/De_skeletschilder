@@ -5,10 +5,8 @@ function startIntro() {
 
   // Start video en audio tegelijk
   const video = document.getElementById('introVideo');
-  const audio = document.getElementById('introAudio');
 
   video.play();
-  audio.play();
 
   // Wanneer video klaar is, ga naar volgende scherm
   video.onended = () => {
@@ -24,16 +22,13 @@ function startIntro() {
 function toonUitleg(videoSrc, audioSrc) {
   const overlay = document.getElementById('overlay');
   const video = document.getElementById('video');
-  const audio = document.getElementById('audio');
 
   // Zet de juiste bestanden
   video.src = videoSrc;
-  audio.src = audioSrc;
 
   // Toon overlay en start afspelen
   overlay.style.display = 'flex';
   video.play();
-  audio.play();
 
   // Als video klaar is, sluit overlay en keer terug naar main screen
   video.onended = () => {
@@ -49,9 +44,7 @@ function sluitOverlay() {
 
   // Stop en reset media
   video.pause();
-  audio.pause();
   video.src = '';
-  audio.src = '';
 
   // Verberg overlay
   overlay.style.display = 'none';
