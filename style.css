@@ -88,6 +88,20 @@ body {
   max-width: 800px;
 }
 
-#overlay audio {
-  margin-top: 20px;
+#terugKnop {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  font-size: 1em;
+  background-color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 1001;
 }
+
+#terugKnop:hover {
+  background-color: #ddd;
+}
+
