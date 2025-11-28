@@ -55,16 +55,6 @@ body {
   display: block;
 }
 
-.bol {
-  position: absolute;
-  width: 40px;
-  height: 40px;
-  background-color: white;
-  border-radius: 50%;
-  cursor: pointer;
-  box-shadow: 0 0 10px rgba(255,255,255,0.8);
-}
-
 #overlay {
   position: fixed;
   top: 0; left: 0;
@@ -106,3 +96,53 @@ body {
   background-color: #ddd;
 }
 
+/* Animatie definitie */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 10px rgba(255,255,255,0.8);
+  }
+  50% {
+    transform: scale(1.2);
+    box-shadow: 0 0 20px rgba(255,255,255,1);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 10px rgba(255,255,255,0.8);
+  }
+}
+
+.bol, .ster {
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.ster {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background-color: white;
+  clip-path: polygon(
+    50% 0%, 61% 35%, 98% 35%, 
+    68% 57%, 79% 91%, 50% 70%, 
+    21% 91%, 32% 57%, 2% 35%, 
+    39% 35%
+  );
+  cursor: pointer;
+  animation: pulse 2s infinite; /* pulserende animatie */
+}
+
+.bol {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background-color: white;
+  border-radius: 50%;
+  cursor: pointer;
+  animation: pulse 2s infinite; /* pulserende animatie */
+}
+
+/* Gekozen (blauw) */
+.gekozen {
+  background-color: blue !important;
+  box-shadow: 0 0 15px rgba(0,0,255,0.9) !important;
+}

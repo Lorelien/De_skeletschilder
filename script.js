@@ -19,7 +19,7 @@ function startIntro() {
 }
 
 
-function toonUitleg(videoSrc, audioSrc) {
+function toonUitleg(videoSrc, audioSrc, element) {
   const overlay = document.getElementById('overlay');
   const video = document.getElementById('video');
 
@@ -30,12 +30,16 @@ function toonUitleg(videoSrc, audioSrc) {
   overlay.style.display = 'flex';
   video.play();
 
+  // Markeer de aangeklikte bol/ster als gekozen
+  if (element) {
+    element.classList.add('gekozen');
+  }
+
   // Als video klaar is, sluit overlay en keer terug naar main screen
   video.onended = () => {
     sluitOverlay();
   };
 }
-
 
 function sluitOverlay() {
   const overlay = document.getElementById('overlay');
