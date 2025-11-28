@@ -48,6 +48,8 @@ body {
   position: relative;
   max-width: 1000px;
   margin: auto;
+  height: 100vh;        /* vult volledige schermhoogte */
+  overflow: hidden;     /* voorkomt scrollen */
 }
 
 #mainImage {
@@ -80,20 +82,19 @@ body {
 
 #terugKnop {
   position: absolute;
-  bottom: 10px;
-  left: 10px;
-  padding: 10px 20px;
-  font-size: 1em;
-  background-color: white;
-  border: none;
-  border-radius: 5px;
+  bottom: 60px;
+  left: 20px;
+  padding: 12px 24px;
+  font-size: 1.2em;
+  font-family: 'Georgia', serif; /* klassieke uitstraling */
+  font-weight: bold;
+  background: linear-gradient(135deg, #748198, #997712); /* rood-geel contrast */
+  color: #faf9f9;
+  border: 3px solid #000; /* sterke contouren */
+  border-radius: 12px;
   cursor: pointer;
-  z-index: 1001;
-}
-
-
-#terugKnop:hover {
-  background-color: #ddd;
+  box-shadow: 4px 4px 0px rgba(0,0,0,0.8); /* dramatisch schaduw-effect */
+  transition: transform 0.2s, background 0.3s;
 }
 
 /* Animatie definitie */
@@ -145,4 +146,17 @@ body {
 .gekozen {
   background-color: blue !important;
   box-shadow: 0 0 15px rgba(0,0,255,0.9) !important;
+}
+
+#quizTeaser {
+  position: absolute;
+  bottom: 40px;
+  width: 100%;
+  text-align: center;
+  font-size: 1.5em;
+  font-family: 'Georgia', serif;
+  font-weight: bold;
+  color: #fcfbfb;
+  padding: 10px;
+  background-color: #784129;
 }
