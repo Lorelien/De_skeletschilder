@@ -57,3 +57,29 @@ function sluitOverlay() {
   document.getElementById('mainScreen').style.display = 'block';
 }
 
+function openSchilderij(id) {
+  document.getElementById('mainScreen').style.display = 'none';
+  document.getElementById(id).style.display = 'block';
+
+  // markeer bol als gekozen (blauw)
+  if (element) {
+    element.classList.add('gekozen');
+  }
+
+  // start achtergrond en skeletintro
+  const skeletVideo = document.querySelector(`#${id} .skeletVideo`);
+  skeletVideo.play();
+}
+
+function speelSkelet(videoSrc, schilderijId) {
+  const skeletVideo = document.querySelector(`#${schilderijId} .skeletVideo`);
+  skeletVideo.src = videoSrc;
+  skeletVideo.play();
+}
+
+function gaTerug(id) {
+  document.getElementById(id).style.display = 'none';
+  document.getElementById('mainScreen').style.display = 'block';
+}
+
+

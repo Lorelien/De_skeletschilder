@@ -148,15 +148,31 @@ body {
   box-shadow: 0 0 15px rgba(0,0,255,0.9) !important;
 }
 
-#quizTeaser {
-  position: absolute;
-  bottom: 40px;
+.schilderijScreen {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.achtergrondVideo {
   width: 100%;
-  text-align: center;
-  font-size: 1.5em;
-  font-family: 'Georgia', serif;
-  font-weight: bold;
-  color: #fcfbfb;
-  padding: 10px;
-  background-color: #784129;
+  height: 100%;
+  object-fit: contain;
+}
+
+.skeletVideo {
+  position: absolute;
+  bottom: 10%;   /* vaste positie */
+  right: 5%;     /* bijvoorbeeld rechts onderaan */
+  width: 25%;    /* grootte van skelet */
+  z-index: 2;    /* boven achtergrond, maar onder objecten als nodig */
+}
+
+.object {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  cursor: pointer;
+  z-index: 3;    /* boven skelet en achtergrond */
 }
