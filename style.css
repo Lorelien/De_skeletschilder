@@ -183,3 +183,16 @@ body {
   width: 50%;
   height: 50%;
 }
+
+#masker {
+  width: 20%;
+  height: 20%;
+}
+
+#schilderij1 {
+  position: relative;
+  max-width: 1000px;
+  margin: auto;
+  height: 100vh;        /* vult volledige schermhoogte */
+  overflow: hidden;     /* voorkomt scrollen */
+}
