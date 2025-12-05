@@ -178,3 +178,8 @@ body {
   cursor: pointer;
   border-radius: 50%;
 }
+
+#kreeft {
+  width: 50%;
+  height: 50%;
+}
