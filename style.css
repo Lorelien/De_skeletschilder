@@ -175,4 +175,6 @@ body {
   height: 80px;
   cursor: pointer;
   z-index: 3;    /* boven skelet en achtergrond */
+  cursor: pointer;
+  border-radius: 50%;
 }
