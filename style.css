@@ -180,16 +180,6 @@ body {
   border-radius: 50%;
 }
 
-#kreeft {
- width: 30%;
-  height: 20%;
-}
-
-#masker2 {
-  width: 10%;
-  height: 20%;
-}
-
 #schilderij1 {
   position: relative;
   max-width: 1000px;
@@ -226,6 +216,16 @@ body {
 #plant {
  height: 30%;
  width: 15%;
+}
+
+#kreeft {
+ width: 30%;
+  height: 20%;
+}
+
+#masker2 {
+  width: 10%;
+  height: 20%;
 }
 
 #skipIntro {
