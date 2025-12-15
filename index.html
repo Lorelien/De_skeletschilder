@@ -15,8 +15,8 @@
   <!-- Introductievideo en audio -->
 <div id="introScreen">
   <video id="introVideo" src="video-audio/video_skeletschilder.mp4"></video>
+  <button id="skipIntro" onclick="skipIntro()">Skip intro</button>
 </div>
-
 
   <!-- Skeletschilder met bollen -->
   <div id="mainScreen">
@@ -30,7 +30,7 @@
 <!-- Schilderij 1 -->
 <div id="schilderij1" class="schilderijScreen" style="display:none;">
   <!-- Achtergrondvideo -->
-  <video class="achtergrondVideo" src="video-audio/video_maskers.mp4" autoplay loop></video>
+  <video class="achtergrondVideo" src="video-audio/video_masker.mp4" autoplay loop></video>
 
   <!-- Objecten met eigen audio --> 
   <img class="object" id="kreeft" style="top:60%; left:50%;" src="video-audio/Kreeft.png"
@@ -52,13 +52,13 @@
   <video class="achtergrondVideo" src="video-audio/video_azaela.mp4" autoplay loop></video>
 
   <!-- Objecten met eigen audio --> 
-  <img class="object" id="roos" style="top:60%; left:50%;" src="video-audio/roos_blad.png"
+  <img class="object" id="roos" style="top:70%; left:63%;" src="video-audio/roos_blad.png"
      onclick="speelAudio('video-audio/azaela_bloem_uitleg.mp3')" />
 
-  <img class="object" id="plant" style="top:80%; left:60%;" src="video-audio/groen_blad.png"
+  <img class="object" id="plant" style="top:60%; left:12%;" src="video-audio/groen_blad.png"
       onclick="speelAudio('video-audio/azaela_plant_uitleg/mp3')"/>
 
-  <img class="object" id="standbeeld" style="top:60%; left:0%;" src="video-audio/standbeeld.png"
+  <img class="object" id="standbeeld" style="top:65%; left:2%;" src="video-audio/standbeeld.png"
       onclick="speelAudio('video-audio/azaela_standbeeld_uitleg.mp3')"/>
   
       <!-- Terugknop -->
@@ -71,14 +71,11 @@
   <video class="achtergrondVideo" src="video-audio/" autoplay loop></video>
 
   <!-- Objecten met eigen audio --> 
-  <img class="object" id="kreeft" style="top:60%; left:50%;" src="video-audio/"
-     onclick="speelAudio('video-audio/')" />
+  <img class="object" id="boot1" style="top:60%; left:50%;" src="video-audio/boot1.png"
+     onclick="speelAudio('video-audio/HVO_boot1_uitleg.mp3')" />
 
-  <img class="object" id="masker1" style="top:80%; left:60%;" src="video-audio/"
-      onclick="speelAudio('video-audio/')"/>
-
-  <img class="object" id="masker2" style="top:40%; left:0%;" src="video-audio/"
-      onclick="speelAudio('video-audio/')"/>
+  <img class="object" id="boot2" style="top:80%; left:60%;" src="video-audio/boot2.png"
+      onclick="speelAudio('video-audio/HVO_boot2_uitleg.mp3')"/>
   
       <!-- Terugknop -->
   <button class="terugKnop" onclick="gaTerug('schilderij3')">Terug</button>

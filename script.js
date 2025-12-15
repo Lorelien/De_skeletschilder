@@ -93,3 +93,17 @@ function speelAudio(audioSrc) {
   audio.src = audioSrc;
   audio.play();
 }
+
+// automatisch naar main screen na intro
+document.getElementById('introVideo').addEventListener('ended', () => {
+  document.getElementById('introScreen').style.display = 'none';
+  document.getElementById('mainScreen').style.display = 'block';
+});
+
+// skip-knop
+function skipIntro() {
+  const introVideo = document.getElementById('introVideo');
+  introVideo.pause(); // stop de video
+  document.getElementById('introScreen').style.display = 'none';
+  document.getElementById('mainScreen').style.display = 'block';
+}
