@@ -57,7 +57,7 @@ function sluitOverlay() {
   document.getElementById('mainScreen').style.display = 'block';
 }
 
-function openSchilderij(id) {
+function openSchilderij(id, element) {
   document.getElementById('mainScreen').style.display = 'none';
   document.getElementById(id).style.display = 'block';
 
@@ -82,4 +82,14 @@ function gaTerug(id) {
   document.getElementById('mainScreen').style.display = 'block';
 }
 
-
+function speelAudio(audioSrc) {
+  // check of er al een audio-element bestaat
+  let audio = document.getElementById('skeletAudio');
+  if (!audio) {
+    audio = document.createElement('audio');
+    audio.id = 'skeletAudio';
+    document.body.appendChild(audio);
+  }
+  audio.src = audioSrc;
+  audio.play();
+}

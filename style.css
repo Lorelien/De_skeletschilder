@@ -80,7 +80,7 @@ body {
   max-width: 800px;
 }
 
-#terugKnop {
+.terugKnop {
   position: absolute;
   bottom: 60px;
   left: 20px;
@@ -189,10 +189,39 @@ body {
   height: 20%;
 }
 
-#schilderij {
+#schilderij1 {
   position: relative;
   max-width: 1000px;
   margin: auto;
   height: 100vh;        /* vult volledige schermhoogte */
   overflow: hidden;     /* voorkomt scrollen */
+}
+
+#schilderij2 {
+  position: relative;
+  max-width: 1000px;
+  margin: auto;
+  height: 100vh;        /* vult volledige schermhoogte */
+  overflow: hidden;     /* voorkomt scrollen */
+}
+
+#schilderij3 {
+  position: relative;
+  max-width: 1000px;
+  margin: auto;
+  height: 100vh;        /* vult volledige schermhoogte */
+  overflow: hidden;     /* voorkomt scrollen */
+}
+
+#roos {
+  width: 50%;
+  height: 50%;
+}
+
+#standbeeld {
+ height: 25%;
+}
+
+#plant {
+
 }
