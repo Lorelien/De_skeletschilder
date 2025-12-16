@@ -263,18 +263,26 @@ body {
 #kreeft {
  width: 30%;
   height: 20%;
+  transform-origin: center bottom;
+  animation: kreeftWiebelen 6s ease-in-out infinite;
+}
+
+@keyframes kreeftWiebelen {
+  0%   { transform: rotate(-2deg); }
+  50%  { transform: rotate(2deg); }
+  100% { transform: rotate(-2deg); }
 }
 
 #masker2 {
   width: 10%;
-  height: 20%; 
+  height: 20%;
 }
 
 #masker1 {
   animation: swing 3s ease-in-out infinite;
   transform-origin: top center; /* bovenkant vast, alsof het aan een touw hangt */
   /* gloed rond de vorm van het masker */
-  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.8));
+  filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.8));
 }
 
 /* pendel-animatie */
