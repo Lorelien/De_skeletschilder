@@ -57,18 +57,18 @@ function sluitOverlay() {
   document.getElementById('mainScreen').style.display = 'block';
 }
 
-function openSchilderij(id, element) {
+function openSchilderij(id) {
+  // mainscreen verbergen
   document.getElementById('mainScreen').style.display = 'none';
+  // schilderij tonen
   document.getElementById(id).style.display = 'block';
 
-  // markeer bol als gekozen (blauw)
-  if (element) {
-    element.classList.add('gekozen');
-  }
-
-  // start achtergrond en skeletintro
-  const skeletVideo = document.querySelector(`#${id} .skeletVideo`);
-  skeletVideo.play();
+  // start alle achtergrondvideo's in dit schilderij
+  const videos = document.querySelectorAll(`#${id} .achtergrondVideo`);
+  videos.forEach(video => {
+    video.currentTime = 0; // begin vanaf start
+    video.play();
+  });
 }
 
 function speelSkelet(videoSrc, schilderijId) {
@@ -78,24 +78,24 @@ function speelSkelet(videoSrc, schilderijId) {
 }
 
 function gaTerug(id) {
-  // verberg schilderij
+  // schilderij verbergen
   document.getElementById(id).style.display = 'none';
-  // toon main screen
+  // mainscreen tonen
   document.getElementById('mainScreen').style.display = 'block';
 
-  // stop ALLE achtergrondvideo's in alle schilderijen
-  const allVideos = document.querySelectorAll('.achtergrondVideo, .skeletVideo');
-  allVideos.forEach(video => {
+  // stop alle video's in dit schilderij
+  const videos = document.querySelectorAll(`#${id} .achtergrondVideo, #${id} .skeletVideo`);
+  videos.forEach(video => {
     video.pause();
-    video.currentTime = 0;
+    video.currentTime = 0; // terug naar start
   });
 
-  // optioneel: ook skeletvideo stoppen
-  const skeletVideo = document.querySelector(`#${id} .skeletVideo`);
-  if (skeletVideo) {
-    skeletVideo.pause();
-    skeletVideo.currentTime = 0;
-  }
+  // stop alle audiofragmenten in dit schilderij
+  const audios = document.querySelectorAll(`#${id} audio`);
+  audios.forEach(audio => {
+    audio.pause();
+    audio.currentTime = 0;
+  });
 
   // reset bloem (als die bestaat in dit schilderij)
   const bloem = document.getElementById('bloem');
@@ -107,17 +107,20 @@ function gaTerug(id) {
   }
 }
 
+function speelAudio(audioId) {
+  // stop alle audio-elementen op de pagina
+  const allAudios = document.querySelectorAll("audio");
+  allAudios.forEach(a => {
+    a.pause();
+    a.currentTime = 0;
+  });
 
-function speelAudio(audioSrc) {
-  // check of er al een audio-element bestaat
-  let audio = document.getElementById('skeletAudio');
-  if (!audio) {
-    audio = document.createElement('audio');
-    audio.id = 'skeletAudio';
-    document.body.appendChild(audio);
+  // speel het gekozen fragment
+  const audio = document.getElementById(audioId);
+  if (audio) {
+    audio.currentTime = 0;
+    audio.play();
   }
-  audio.src = audioSrc;
-  audio.play();
 }
 
 // automatisch naar main screen na intro
