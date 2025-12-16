@@ -6,6 +6,12 @@ function startIntro() {
   const introVideo = document.getElementById('introVideo');
   introVideo.currentTime = 0;
   introVideo.play();
+
+  // zodra de video eindigt → automatisch naar mainscreen
+  introVideo.onended = function() {
+    document.getElementById('introScreen').style.display = 'none';
+    document.getElementById('mainScreen').style.display = 'block';
+  };
 }
 
 // Schilderij openen
