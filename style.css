@@ -213,6 +213,26 @@ body {
 #bloem {
   height: 28%;
   width: 13%;
+  animation: sway 3s ease-in-out infinite;
+  transform-origin: top center; /* bovenkant blijft vast */
+  transition: top 1s ease-out;  /* overgang voor vallen */
+}
+
+@keyframes sway {
+  0%   { transform: rotate(-5deg); }
+  50%  { transform: rotate(5deg); }
+  100% { transform: rotate(-5deg); }
+}
+
+/* val-animatie met rotatie */
+@keyframes fall {
+  0%   { top: 48%; transform: rotate(0deg); }
+  100% { top: 86%; transform: rotate(90deg); }
+}
+
+/* toestand na klik */
+#bloem.fallen {
+  animation: fall 1s ease-out forwards; /* laat vallen en blijft liggen */
 }
 
 #standbeeld {

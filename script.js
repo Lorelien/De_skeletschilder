@@ -83,11 +83,11 @@ function gaTerug(id) {
   // toon main screen
   document.getElementById('mainScreen').style.display = 'block';
 
-  // stop alle achtergrondvideo's binnen dit schilderij
-  const videos = document.querySelectorAll(`#${id} .achtergrondVideo`);
-  videos.forEach(video => {
+  // stop ALLE achtergrondvideo's in alle schilderijen
+  const allVideos = document.querySelectorAll('.achtergrondVideo, .skeletVideo');
+  allVideos.forEach(video => {
     video.pause();
-    video.currentTime = 0; // reset naar begin
+    video.currentTime = 0;
   });
 
   // optioneel: ook skeletvideo stoppen
@@ -95,6 +95,15 @@ function gaTerug(id) {
   if (skeletVideo) {
     skeletVideo.pause();
     skeletVideo.currentTime = 0;
+  }
+
+  // reset bloem (als die bestaat in dit schilderij)
+  const bloem = document.getElementById('bloem');
+  if (bloem) {
+    bloem.classList.remove('fallen');              // verwijder val-animatie
+    bloem.style.top = "48%";                       // terug naar startpositie
+    bloem.style.transform = "rotate(0deg)";        // rechtop zetten
+    bloem.style.animation = "sway 3s ease-in-out infinite"; // wiebel opnieuw starten
   }
 }
 
@@ -123,4 +132,9 @@ function skipIntro() {
   introVideo.pause(); // stop de video
   document.getElementById('introScreen').style.display = 'none';
   document.getElementById('mainScreen').style.display = 'block';
+}
+
+function laatBloemVallen() {
+  const bloem = document.getElementById('bloem');
+  bloem.classList.add('fallen');
 }
