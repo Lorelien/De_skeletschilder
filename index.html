@@ -12,96 +12,91 @@
     <button onclick="startIntro()">Start</button>
   </div>
 
-  <!-- Introductievideo en audio -->
-<div id="introScreen">
-  <video id="introVideo" src="video-audio/video_skeletschilder.mp4"></video>
-  <button id="skipIntro" onclick="skipIntro()">Skip intro</button>
-</div>
+  <!-- Introductievideo -->
+  <div id="introScreen" style="display:none;">
+    <video id="introVideo" src="video-audio/video_skeletschilder.mp4"></video>
+    <button id="skipIntro" onclick="skipIntro()">Skip intro</button>
+  </div>
 
-  <!-- Skeletschilder met bollen -->
-  <div id="mainScreen">
+  <!-- Skeletschilder met bollen en ster -->
+  <div id="mainScreen" style="display:none;">
     <img src="de skeletschilder.png" alt="De Skeletschilder" id="mainImage">
+
     <div class="bol" style="top:30%; left:10%;" onclick="openSchilderij('schilderij1', this)"></div>
     <div class="bol" style="top:10%; left:60%;" onclick="openSchilderij('schilderij2', this)"></div>
     <div class="bol" style="top:65%; left:15%;" onclick="openSchilderij('schilderij3', this)"></div>
     <div class="ster" style="top:50%; left:65%;" onclick="toonUitleg('video-audio/video_skelet.mp4', null, this)"></div>
   </div>  
 
-<!-- Schilderij 1 -->
-<div id="schilderij1" class="schilderijScreen" style="display:none;">
-  <!-- Achtergrondvideo -->
-  <video class="achtergrondVideo" src="video-audio/video_masker.mp4" autoplay loop></video>
+  <!-- Schilderij 1 -->
+  <div id="schilderij1" class="schilderijScreen" style="display:none;">
+    <video class="achtergrondVideo" src="video-audio/video_masker.mp4" loop></video>
 
-<!-- audio-elementen -->
-<audio id="audio_kreeft" src="video-audio/M&S_kreeft_uitleg.mp3"></audio>
-<audio id="audio_masker1" src="video-audio/M&S_masker1_uitleg.mp3"></audio>
-<audio id="audio_masker2" src="video-audio/M&S_masker2_uitleg.mp3"></audio>
+    <!-- audio-elementen -->
+    <audio id="audio_kreeft" src="video-audio/M&S_kreeft_uitleg.mp3"></audio>
+    <audio id="audio_masker1" src="video-audio/M&S_masker1_uitleg.mp3"></audio>
+    <audio id="audio_masker2" src="video-audio/M&S_masker2_uitleg.mp3"></audio>
 
-<!-- objecten -->
-<img class="object" id="kreeft" style="top:60%; left:50%;" src="video-audio/Kreeft.png"
-     onclick="speelAudio('audio_kreeft')" />
+    <!-- objecten -->
+    <img class="object" id="kreeft" style="top:60%; left:50%;" src="video-audio/Kreeft.png"
+         onclick="speelAudio('audio_kreeft')" />
 
-<img class="object" id="masker1" style="top:80%; left:60%;" src="video-audio/masker1.png"
-     onclick="speelAudio('audio_masker1')" />
+    <img class="object" id="masker1" style="top:80%; left:60%;" src="video-audio/masker1.png"
+         onclick="speelAudio('audio_masker1')" />
 
-<img class="object" id="masker2" style="top:40%; left:1%;" src="video-audio/masker2.png"
-     onclick="speelAudio('audio_masker2')" />
-  
-      <!-- Terugknop -->
-  <button class="terugKnop" onclick="gaTerug('schilderij1')">Terug</button>
-</div>
+    <img class="object" id="masker2" style="top:40%; left:1%;" src="video-audio/masker2.png"
+         onclick="speelAudio('audio_masker2')" />
 
-<!-- Schilderij 2 -->
-<div id="schilderij2" class="schilderijScreen" style="display:none;">
-  <!-- Achtergrondvideo -->
-  <video class="achtergrondVideo" src="video-audio/video_azaela.mp4" autoplay loop></video>
+    <button class="terugKnop" onclick="gaTerug('schilderij1')">Terug</button>
+  </div>
 
-<!-- audio-elementen -->
-<audio id="audio_schelp" src="video-audio/schelp.mp3"></audio>
-<audio id="audio_plant" src="video-audio/azaela_plant_uitleg.mp3"></audio>
-<audio id="audio_standbeeld" src="video-audio/azaela_standbeeld_uitleg.mp3"></audio>
-<audio id="audio_bloem" src="video-audio/azaela_bloem_uitleg.mp3"></audio>
+  <!-- Schilderij 2 -->
+  <div id="schilderij2" class="schilderijScreen" style="display:none;">
+    <video class="achtergrondVideo" src="video-audio/video_azaela.mp4" loop></video>
 
-<!-- objecten -->
-<img class="object" id="schelp" style="top:70%; left:63%;" src="video-audio/schelp.png"
-     onclick="speelAudio('audio_schelp')" />
+    <!-- audio-elementen -->
+    <audio id="audio_schelp" src="video-audio/schelp.mp3"></audio>
+    <audio id="audio_plant" src="video-audio/azaela_plant_uitleg.mp3"></audio>
+    <audio id="audio_standbeeld" src="video-audio/azaela_standbeeld_uitleg.mp3"></audio>
+    <audio id="audio_bloem" src="video-audio/azaela_bloem_uitleg.mp3"></audio>
 
-<img class="object" id="plant" style="top:60%; left:12%;" src="video-audio/groen_blad.png"
-     onclick="speelAudio('audio_plant')" />
+    <!-- objecten -->
+    <img class="object" id="schelp" style="top:70%; left:63%;" src="video-audio/schelp.png"
+         onclick="speelAudio('audio_schelp')" />
 
-<img class="object" id="standbeeld" style="top:65%; left:2%;" src="video-audio/standbeeld.png"
-     onclick="speelAudio('audio_standbeeld')" />
+    <img class="object" id="plant" style="top:60%; left:12%;" src="video-audio/groen_blad.png"
+         onclick="speelAudio('audio_plant')" />
 
-<img class="object" id="bloem" style="top:48%; left:46%;" src="video-audio/bloemblaadje.png"
-     onclick="speelAudio('audio_bloem'); laatBloemVallen()" />
-  
-      <!-- Terugknop -->
-  <button class="terugKnop" onclick="gaTerug('schilderij2')">Terug</button>
-</div>
+    <img class="object" id="standbeeld" style="top:65%; left:2%;" src="video-audio/standbeeld.png"
+         onclick="speelAudio('audio_standbeeld')" />
 
-<!-- Schilderij 3 -->
-<div id="schilderij3" class="schilderijScreen" style="display:none;">
-  <!-- Achtergrondvideo -->
-  <video class="achtergrondVideo" src="video-audio/video_hvo.mp4" autoplay loop></video>
+    <img class="object" id="bloem" style="top:48%; left:46%;" src="video-audio/bloemblaadje.png"
+         onclick="speelAudio('audio_bloem'); laatBloemVallen()" />
 
-<!-- audio-elementen -->
-<audio id="audio_boot1" src="video-audio/HVO_boot1_uitleg.mp3"></audio>
-<audio id="audio_boot2" src="video-audio/HVO_boot2_uitleg.mp3"></audio>
+    <button class="terugKnop" onclick="gaTerug('schilderij2')">Terug</button>
+  </div>
 
-<!-- objecten -->
-<img class="object" id="boot1" style="top:31%; left:12%;" src="video-audio/boot1.png"
-     onclick="speelAudio('audio_boot1')" />
+  <!-- Schilderij 3 -->
+  <div id="schilderij3" class="schilderijScreen" style="display:none;">
+    <video class="achtergrondVideo" src="video-audio/video_hvo.mp4" loop></video>
 
-<img class="object" id="boot2" style="top:46%; left:55%;" src="video-audio/boot2.png"
-     onclick="speelAudio('audio_boot2')" />
-  
-      <!-- Terugknop -->
-  <button class="terugKnop" onclick="gaTerug('schilderij3')">Terug</button>
-</div>
+    <!-- audio-elementen -->
+    <audio id="audio_boot1" src="video-audio/HVO_boot1_uitleg.mp3"></audio>
+    <audio id="audio_boot2" src="video-audio/HVO_boot2_uitleg.mp3"></audio>
+
+    <!-- objecten -->
+    <img class="object" id="boot1" style="top:31%; left:12%;" src="video-audio/boot1.png"
+         onclick="speelAudio('audio_boot1')" />
+
+    <img class="object" id="boot2" style="top:46%; left:55%;" src="video-audio/boot2.png"
+         onclick="speelAudio('audio_boot2')" />
+
+    <button class="terugKnop" onclick="gaTerug('schilderij3')">Terug</button>
+  </div>
 
   <!-- Overlay voor uitleg -->
-  <div id="overlay">
-    <video id="video" autoplay></video>
+  <div id="overlay" style="display:none;">
+    <video id="video"></video>
     <button id="terugKnop" onclick="sluitOverlay()">Terug</button>
   </div>
 

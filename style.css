@@ -27,10 +27,10 @@ body {
 }
 
 #introVideo {
-  width: 100vw;       /* Volledige breedte van het scherm */
-  height: auto;       /* Houdt de verhouding correct */
-  max-height: 100vh;  /* Zorgt dat het niet hoger is dan het scherm */
-  object-fit: contain; /* Zorgt dat de video netjes binnen het kader blijft */
+  width: 100vw;
+  height: auto;
+  max-height: 100vh;
+  object-fit: contain;
   display: block;
   margin: 0 auto;
 }
@@ -44,12 +44,24 @@ body {
   height: auto;
 }
 
+#skipIntro {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;          /* zet hem rechts */
+  padding: 10px 20px;
+  background: rgba(0,0,0,0.7);
+  color: white;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+}
+
 #mainScreen {
   position: relative;
   max-width: 1000px;
   margin: auto;
-  height: 100vh;        /* vult volledige schermhoogte */
-  overflow: hidden;     /* voorkomt scrollen */
+  height: 100vh;
+  overflow: hidden;
 }
 
 #mainImage {
@@ -87,29 +99,20 @@ body {
   padding: 12px 24px;
   z-index: 9999;
   font-size: 1.2em;
-  font-family: 'Georgia', serif; /* klassieke uitstraling */
+  font-family: 'Georgia', serif;
   font-weight: bold;
-  background: linear-gradient(135deg, #748198, #997712); /* rood-geel contrast */
+  background: linear-gradient(135deg, #748198, #997712);
   color: #faf9f9;
-  border: 2px solid #000; /* sterke contouren */
+  border: 2px solid #000;
   border-radius: 12px;
   cursor: pointer;
 }
 
 /* Animatie definitie */
 @keyframes pulse {
-  0% {
-    transform: scale(1);
-    box-shadow: 0 0 10px rgba(255,255,255,0.8);
-  }
-  50% {
-    transform: scale(1.2);
-    box-shadow: 0 0 20px rgba(255,255,255,1);
-  }
-  100% {
-    transform: scale(1);
-    box-shadow: 0 0 10px rgba(255,255,255,0.8);
-  }
+  0% { transform: scale(1); box-shadow: 0 0 10px rgba(255,255,255,0.8); }
+  50% { transform: scale(1.2); box-shadow: 0 0 20px rgba(255,255,255,1); }
+  100% { transform: scale(1); box-shadow: 0 0 10px rgba(255,255,255,0.8); }
 }
 
 .bol, .ster {
@@ -128,7 +131,7 @@ body {
     39% 35%
   );
   cursor: pointer;
-  animation: pulse 2s infinite; /* pulserende animatie */
+  animation: pulse 2s infinite;
 }
 
 .bol {
@@ -138,7 +141,7 @@ body {
   background-color: white;
   border-radius: 50%;
   cursor: pointer;
-  animation: pulse 2s infinite; /* pulserende animatie */
+  animation: pulse 2s infinite;
 }
 
 /* Gekozen (blauw) */
@@ -163,10 +166,10 @@ body {
 
 .skeletVideo {
   position: absolute;
-  bottom: 10%;   /* vaste positie */
-  right: 5%;     /* bijvoorbeeld rechts onderaan */
-  width: 25%;    /* grootte van skelet */
-  z-index: 2;    /* boven achtergrond, maar onder objecten als nodig */
+  bottom: 10%;
+  right: 5%;
+  width: 25%;
+  z-index: 2;
 }
 
 .object {
@@ -174,63 +177,43 @@ body {
   width: 80px;
   height: 80px;
   cursor: pointer;
-  z-index: 3;    /* boven skelet en achtergrond */
-  cursor: pointer;
+  z-index: 3;
   border-radius: 50%;
 }
 
-#schilderij1 {
+/* Schilderijen */
+#schilderij1, #schilderij2, #schilderij3 {
   position: relative;
   max-width: 1000px;
   margin: auto;
-  height: 100vh;        /* vult volledige schermhoogte */
-  overflow: hidden;     /* voorkomt scrollen */
+  height: 100vh;
+  overflow: hidden;
 }
 
-#schilderij2 {
-  position: relative;
-  max-width: 1000px;
-  margin: auto;
-  height: 100vh;        /* vult volledige schermhoogte */
-  overflow: hidden;     /* voorkomt scrollen */
-}
-
-#schilderij3 {
-  position: relative;
-  max-width: 1000px;
-  margin: auto;
-  height: 100vh;        /* vult volledige schermhoogte */
-  overflow: hidden;     /* voorkomt scrollen */
-}
-
-#schelp {
-  width: 15%;
-  height: 20%;
-}
+/* Object-specifieke stijlen */
+#schelp { width: 15%; height: 20%; }
 
 #bloem {
   height: 28%;
   width: 13%;
   animation: sway 3s ease-in-out infinite;
-  transform-origin: top center; /* bovenkant blijft vast */
-  transition: top 1s ease-out;  /* overgang voor vallen */
+  transform-origin: top center;
+  transition: top 1s ease-out;
 }
 
 @keyframes sway {
-  0%   { transform: rotate(-5deg); }
-  50%  { transform: rotate(5deg); }
+  0% { transform: rotate(-5deg); }
+  50% { transform: rotate(5deg); }
   100% { transform: rotate(-5deg); }
 }
 
-/* val-animatie met rotatie */
 @keyframes fall {
-  0%   { top: 48%; transform: rotate(0deg); }
+  0% { top: 48%; transform: rotate(0deg); }
   100% { top: 86%; transform: rotate(90deg); }
 }
 
-/* toestand na klik */
 #bloem.fallen {
-  animation: fall 1s ease-out forwards; /* laat vallen en blijft liggen */
+  animation: fall 1s ease-out forwards;
 }
 
 #standbeeld {
@@ -239,63 +222,53 @@ body {
   animation: bounce 2s ease-in-out infinite;
 }
 
-/* spring-animatie */
 @keyframes bounce {
   0%, 100% { transform: translateY(0); }
-  50%      { transform: translateY(-20px); } /* hoogte van sprong */
+  50% { transform: translateY(-20px); }
 }
 
 #plant {
   height: 26%;
   width: 13%;
   animation: sway 3s ease-in-out infinite;
-  transform-origin: top center; /* bovenkant blijft vast */
-}
-
-@keyframes sway {
-  0%   { transform: rotate(-5deg); }
-  50%  { transform: rotate(5deg); }
-  100% { transform: rotate(-5deg); }
+  transform-origin: top center;
 }
 
 #kreeft {
- width: 30%;
+  width: 30%;
   height: 20%;
   transform-origin: center bottom;
   animation: kreeftWiebelen 6s ease-in-out infinite;
 }
 
 @keyframes kreeftWiebelen {
-  0%   { transform: rotate(-4deg); }
-  50%  { transform: rotate(4deg); }
+  0% { transform: rotate(-4deg); }
+  50% { transform: rotate(4deg); }
   100% { transform: rotate(-4deg); }
 }
 
 #masker1 {
   animation: swing 3s ease-in-out infinite;
-  transform-origin: top center; /* bovenkant vast, alsof het aan een touw hangt */
-  /* gloed rond de vorm van het masker */
+  transform-origin: top center;
   filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.8));
 }
 
-/* pendel-animatie */
 @keyframes swing {
-  0%   { transform: rotate(-20deg) translateX(-10px); }
-  50%  { transform: rotate(20deg) translateX(10px); }
+  0% { transform: rotate(-20deg) translateX(-10px); }
+  50% { transform: rotate(20deg) translateX(10px); }
   100% { transform: rotate(-20deg) translateX(-10px); }
 }
 
 #masker2 {
   width: 10%;
   height: 20%;
-  transform-origin: top center; /* bovenkant als draaipunt */
+  transform-origin: top center;
   animation: knik 3s ease-in-out infinite;
 }
 
-/* knik-animatie */
 @keyframes knik {
-  0%   { transform: rotateX(0deg); }
-  50%  { transform: rotateX(25deg); }
+  0% { transform: rotateX(0deg); }
+  50% { transform: rotateX(25deg); }
   100% { transform: rotateX(0deg); }
 }
 
@@ -303,31 +276,17 @@ body {
   height: 45%;
   width: 25%;
   animation: boatSway 4s ease-in-out infinite;
-  transform-origin: bottom center; 
+  transform-origin: bottom center;
 }
 
 #boot2 {
   height: 25%;
   width: 15%;
   animation: boatSway 5s ease-in-out infinite;
-  transform-origin: bottom center; 
+  transform-origin: bottom center;
 }
 
-/* Wiebel-animatie */
 @keyframes boatSway {
-  0%   { transform: rotate(-3deg); }
-  50%  { transform: rotate(3deg); }
-  100% { transform: rotate(-3deg); }
-}
-
-#skipIntro {
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
-  padding: 10px 20px;
-  background: rgba(0,0,0,0.7);
-  color: white;
-  border: none;
-  cursor: pointer;
-  z-index: 10;
+  0% { transform: rotate(-3deg); }
+  50% { transform: rotate(3deg); }
 }
