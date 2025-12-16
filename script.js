@@ -78,9 +78,26 @@ function speelSkelet(videoSrc, schilderijId) {
 }
 
 function gaTerug(id) {
+  // verberg schilderij
   document.getElementById(id).style.display = 'none';
+  // toon main screen
   document.getElementById('mainScreen').style.display = 'block';
+
+  // stop alle achtergrondvideo's binnen dit schilderij
+  const videos = document.querySelectorAll(`#${id} .achtergrondVideo`);
+  videos.forEach(video => {
+    video.pause();
+    video.currentTime = 0; // reset naar begin
+  });
+
+  // optioneel: ook skeletvideo stoppen
+  const skeletVideo = document.querySelector(`#${id} .skeletVideo`);
+  if (skeletVideo) {
+    skeletVideo.pause();
+    skeletVideo.currentTime = 0;
+  }
 }
+
 
 function speelAudio(audioSrc) {
   // check of er al een audio-element bestaat

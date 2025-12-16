@@ -160,6 +160,7 @@ body {
   width: 100%;
   height: 100%;
   object-fit: contain;
+  z-index: 1;
 }
 
 .skeletVideo {
@@ -204,9 +205,14 @@ body {
   overflow: hidden;     /* voorkomt scrollen */
 }
 
-#roos {
+#schelp {
   width: 15%;
-  height: 25%;
+  height: 20%;
+}
+
+#bloem {
+  height: 28%;
+  width: 13%;
 }
 
 #standbeeld {
@@ -214,8 +220,8 @@ body {
 }
 
 #plant {
- height: 30%;
- width: 15%;
+ height: 26%;
+ width: 13%;
 }
 
 #kreeft {
@@ -226,6 +232,16 @@ body {
 #masker2 {
   width: 10%;
   height: 20%;
+}
+
+#boot1 {
+  height: 45%;
+  width: 25%;
+}
+
+#boot2 {
+  height: 25%;
+  width: 15%;
 }
 
 #skipIntro {
