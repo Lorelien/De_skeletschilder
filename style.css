@@ -267,7 +267,21 @@ body {
 
 #masker2 {
   width: 10%;
-  height: 20%;
+  height: 20%; 
+}
+
+#masker1 {
+  animation: swing 3s ease-in-out infinite;
+  transform-origin: top center; /* bovenkant vast, alsof het aan een touw hangt */
+  /* gloed rond de vorm van het masker */
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.8));
+}
+
+/* pendel-animatie */
+@keyframes swing {
+  0%   { transform: rotate(-20deg) translateX(-10px); }
+  50%  { transform: rotate(20deg) translateX(10px); }
+  100% { transform: rotate(-20deg) translateX(-10px); }
 }
 
 #boot1 {
