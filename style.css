@@ -236,12 +236,28 @@ body {
 }
 
 #standbeeld {
- height: 25%;
+  height: 25%;
+  z-index: 3;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+/* spring-animatie */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-20px); } /* hoogte van sprong */
 }
 
 #plant {
- height: 26%;
- width: 13%;
+  height: 26%;
+  width: 13%;
+  animation: sway 3s ease-in-out infinite;
+  transform-origin: top center; /* bovenkant blijft vast */
+}
+
+@keyframes sway {
+  0%   { transform: rotate(-5deg); }
+  50%  { transform: rotate(5deg); }
+  100% { transform: rotate(-5deg); }
 }
 
 #kreeft {
@@ -257,11 +273,22 @@ body {
 #boot1 {
   height: 45%;
   width: 25%;
+  animation: boatSway 4s ease-in-out infinite;
+  transform-origin: bottom center; 
 }
 
 #boot2 {
   height: 25%;
   width: 15%;
+  animation: boatSway 5s ease-in-out infinite;
+  transform-origin: bottom center; 
+}
+
+/* Wiebel-animatie */
+@keyframes boatSway {
+  0%   { transform: rotate(-3deg); }
+  50%  { transform: rotate(3deg); }
+  100% { transform: rotate(-3deg); }
 }
 
 #skipIntro {
