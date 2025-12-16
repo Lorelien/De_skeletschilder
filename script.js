@@ -8,16 +8,6 @@ function startIntro() {
   introVideo.play();
 }
 
-// Intro overslaan
-function skipIntro() {
-  document.getElementById('introScreen').style.display = 'none';
-  document.getElementById('mainScreen').style.display = 'block';
-
-  const introVideo = document.getElementById('introVideo');
-  introVideo.pause();
-  introVideo.currentTime = 0;
-}
-
 // Schilderij openen
 function openSchilderij(id, element) {
   document.getElementById('mainScreen').style.display = 'none';

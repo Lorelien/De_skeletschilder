@@ -44,18 +44,6 @@ body {
   height: auto;
 }
 
-#skipIntro {
-  position: absolute;
-  bottom: 20px;
-  right: 20px;          /* zet hem rechts */
-  padding: 10px 20px;
-  background: rgba(0,0,0,0.7);
-  color: white;
-  border: none;
-  cursor: pointer;
-  z-index: 10;
-}
-
 #mainScreen {
   position: relative;
   max-width: 1000px;
