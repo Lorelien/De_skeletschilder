@@ -76,8 +76,11 @@ body {
 }
 
 #overlay video {
-  width: 80%;
-  max-width: 800px;
+  position: relative;
+  max-width: 1000px;
+  margin: auto;
+  height: 100vh;
+  overflow: hidden;
 }
 
 .terugKnop {
@@ -182,24 +185,30 @@ body {
 #schelp { width: 15%; height: 20%; }
 
 #bloem {
+  position: absolute;
+  top: 10%;              /* startpositie */
+  left: 46%;
   height: 28%;
   width: 13%;
   animation: sway 3s ease-in-out infinite;
-  transform-origin: top center;
-  transition: top 1s ease-out;
+  transform-origin: top center; /* bovenkant blijft vast */
+  transition: top 1s ease-out;  /* vloeiende overgang bij vallen */
 }
 
+/* Swing-animatie */
 @keyframes sway {
-  0% { transform: rotate(-5deg); }
-  50% { transform: rotate(5deg); }
+  0%   { transform: rotate(-5deg); }
+  50%  { transform: rotate(5deg); }
   100% { transform: rotate(-5deg); }
 }
 
+/* Val-animatie met rotatie */
 @keyframes fall {
-  0% { top: 48%; transform: rotate(0deg); }
+  0%   { top: 48%; transform: rotate(0deg); }
   100% { top: 86%; transform: rotate(90deg); }
 }
 
+/* Toestand na klik: bloem valt en blijft liggen */
 #bloem.fallen {
   animation: fall 1s ease-out forwards;
 }
@@ -277,4 +286,26 @@ body {
 @keyframes boatSway {
   0% { transform: rotate(-3deg); }
   50% { transform: rotate(3deg); }
+}
+
+/* Schermvullende overlay met centrering */
+#thankYouScreen {
+  position: fixed;      /* bedekt hele scherm, bovenop alles */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;        /* volledige viewporthoogte */
+  background-color: #111;
+  color: white;
+  display: flex;        /* centreren op de container */
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+/* H1 zonder extra marge */
+#thankYouScreen h1 {
+  margin: 0;
+  font-size: 2.5em;
+  text-align: center;
 }

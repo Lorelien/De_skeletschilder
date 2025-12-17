@@ -1,16 +1,27 @@
 // Intro starten
 function startIntro() {
-  document.getElementById('startScreen').style.display = 'none';
-  document.getElementById('introScreen').style.display = 'block';
+  const start = document.getElementById('startScreen');
+  const intro = document.getElementById('introScreen');
+  const main = document.getElementById('mainScreen');
+  const video = document.getElementById('introVideo');
 
-  const introVideo = document.getElementById('introVideo');
-  introVideo.currentTime = 0;
-  introVideo.play();
+  // Startscherm verbergen, intro tonen
+  start.style.display = 'none';
+  intro.style.display = 'block';
+  main.style.display = 'none';
 
-  // zodra de video eindigt → automatisch naar mainscreen
-  introVideo.onended = function() {
-    document.getElementById('introScreen').style.display = 'none';
-    document.getElementById('mainScreen').style.display = 'block';
+  // Zet video veilig op muted zodat browsers hem afspelen
+  video.muted = false;
+  video.playsInline = true;
+  video.currentTime = 0;
+  video.play().catch(err => {
+    console.warn("Introvideo kon niet starten:", err);
+  });
+
+  // Zodra de video eindigt → automatisch naar mainscreen
+  video.onended = function () {
+    intro.style.display = 'none';
+    main.style.display = 'block';
   };
 }
 
@@ -49,21 +60,31 @@ function gaTerug(id) {
     audio.currentTime = 0;
   });
 
+  checkAllChosen(); // ✅ controle na keuze
+
   // reset enkel de bloem
   resetBloem();
 }
 
-// Audio afspelen (nooit twee tegelijk)
+// Audio afspelen (nooit twee tegelijk, en niet opnieuw starten bij herhaald klikken)
 function speelAudio(audioId) {
-  // stop alle audio-elementen
+  const audio = document.getElementById(audioId);
+
+  // Als dit fragment al speelt → doe niets
+  if (audio && !audio.paused && !audio.ended) {
+    return;
+  }
+
+  // Stop alle andere audio-elementen
   const allAudios = document.querySelectorAll("audio");
   allAudios.forEach(a => {
-    a.pause();
-    a.currentTime = 0;
+    if (a !== audio) {
+      a.pause();
+      a.currentTime = 0;
+    }
   });
 
-  // speel gekozen fragment
-  const audio = document.getElementById(audioId);
+  // Speel gekozen fragment
   if (audio) {
     audio.currentTime = 0;
     audio.play();
@@ -102,6 +123,16 @@ function sluitOverlay() {
     audio.pause();
     audio.currentTime = 0;
   });
+
+  checkAllChosen(); // ✅ controle na keuze
+}
+
+// Bloem laten vallen bij klik
+function laatBloemVallen() {
+  const bloem = document.getElementById('bloem');
+  if (bloem) {
+    bloem.classList.add("fallen"); // activeer de val-animatie
+  }
 }
 
 // Resetfunctie voor bloem
@@ -111,5 +142,29 @@ function resetBloem() {
     bloem.style.animation = "none";
     bloem.offsetHeight; // force reflow
     bloem.style.animation = "";
+  }
+}
+
+function checkAllChosen() {
+  const allInteractive = document.querySelectorAll('.bol, .ster');
+  const allChosen = Array.from(allInteractive).every(el => el.classList.contains('gekozen'));
+
+  if (allChosen) {
+    // toon bedankscherm
+    document.getElementById('mainScreen').style.display = 'none';
+    document.querySelectorAll('.schilderijScreen').forEach(s => s.style.display = 'none');
+    document.getElementById('overlay').style.display = 'none';
+    document.getElementById('thankYouScreen').style.display = 'block';
+
+    // na enkele seconden terug naar startscherm
+    setTimeout(() => {
+      document.getElementById('thankYouScreen').style.display = 'none';
+      document.getElementById('startScreen').style.display = 'flex';
+
+      // reset alle bollen en ster voor volgende bezoeker
+      document.querySelectorAll('.bol, .ster').forEach(el => {
+        el.classList.remove('gekozen');
+      });
+    }, 5000); // 5 seconden tonen
   }
 }

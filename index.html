@@ -24,7 +24,7 @@
     <div class="bol" style="top:30%; left:10%;" onclick="openSchilderij('schilderij1', this)"></div>
     <div class="bol" style="top:10%; left:60%;" onclick="openSchilderij('schilderij2', this)"></div>
     <div class="bol" style="top:65%; left:15%;" onclick="openSchilderij('schilderij3', this)"></div>
-    <div class="ster" style="top:50%; left:65%;" onclick="toonUitleg('video-audio/video_skelet.mp4', null, this)"></div>
+    <div class="ster" style="top:50%; left:65%;" onclick="toonUitleg('video-audio/video_james_ensor.mp4', null, this)"></div>
   </div>  
 
   <!-- Schilderij 1 -->
@@ -96,8 +96,13 @@
   <!-- Overlay voor uitleg -->
   <div id="overlay" style="display:none;">
     <video id="video"></video>
-    <button id="terugKnop" onclick="sluitOverlay()">Terug</button>
+    <button class="terugKnop" onclick="sluitOverlay()">Terug</button>
   </div>
+
+  <!-- Bedankscherm -->
+<div id="thankYouScreen" style="display:none;">
+  <h1>Bedankt om naar mijn verhalen te luisteren!</h1>
+</div>
 
   <script src="script.js"></script>
 </body>
