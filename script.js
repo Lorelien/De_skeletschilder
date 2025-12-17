@@ -167,6 +167,3 @@ function checkAllChosen() {
     }, 5000);
   }
 }
-
-document.getElementById("thankYouScreen").style.display = "flex";
-document.getElementById("thankYouScreen").style.display = "none";

@@ -290,28 +290,15 @@ body {
   50% { transform: rotate(3deg); }
 }
 
-/* #thankYouScreen {
-  position: fixed;
-  inset: 0;
-  display: none;          /* standaard verborgen */
-  /* place-items: center;    /* centreren met grid */
-  /* background: #111;
-  color: #fff;
-  z-index: 9999;
-/* } */
-
 #thankYouScreen {
   position: fixed;
   inset: 0;
-  display: flex;
-  flex-direction: column;   /* belangrijk */
-  justify-content: center;  /* verticaal centreren */
-  align-items: center;      /* horizontaal centreren */
+  display: none;          /* standaard verborgen */
+  place-items: center;    /* centreren met grid */
   background: #111;
   color: #fff;
   z-index: 9999;
 }
-
 
 #thankYouScreen h1 {
   margin: 0;
