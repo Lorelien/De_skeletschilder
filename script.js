@@ -150,21 +150,20 @@ function checkAllChosen() {
   const allChosen = Array.from(allInteractive).every(el => el.classList.contains('gekozen'));
 
   if (allChosen) {
-    // toon bedankscherm
+    // Verberg main, toon bedankscherm
     document.getElementById('mainScreen').style.display = 'none';
-    document.querySelectorAll('.schilderijScreen').forEach(s => s.style.display = 'none');
-    document.getElementById('overlay').style.display = 'none';
     document.getElementById('thankYouScreen').style.display = 'block';
 
-    // na enkele seconden terug naar startscherm
+    // Na 5s: verberg bedank, toon start, reset status
     setTimeout(() => {
       document.getElementById('thankYouScreen').style.display = 'none';
       document.getElementById('startScreen').style.display = 'flex';
 
-      // reset alle bollen en ster voor volgende bezoeker
-      document.querySelectorAll('.bol, .ster').forEach(el => {
-        el.classList.remove('gekozen');
-      });
-    }, 5000); // 5 seconden tonen
+      document.querySelectorAll('.bol, .ster').forEach(el => el.classList.remove('gekozen'));
+
+      // Optioneel: intro en overlay écht uit
+      document.getElementById('introScreen').style.display = 'none';
+      document.getElementById('overlay').style.display = 'none';
+    }, 5000);
   }
 }

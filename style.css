@@ -1,8 +1,10 @@
 body {
-  margin: 0;
+  margin: 0 !important;
+  padding: 0 !important;
   background-color: #000;
   font-family: sans-serif;
   text-align: center;
+  height: 100% !important;
 }
 
 #startScreen {
@@ -288,22 +290,16 @@ body {
   50% { transform: rotate(3deg); }
 }
 
-/* Schermvullende overlay met centrering */
 #thankYouScreen {
-  position: fixed;      /* bedekt hele scherm, bovenop alles */
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;        /* volledige viewporthoogte */
-  background-color: #111;
-  color: white;
-  display: flex;        /* centreren op de container */
-  justify-content: center;
-  align-items: center;
-  z-index: 2000;
+  position: fixed;
+  inset: 0;
+  display: none;          /* standaard verborgen */
+  place-items: center;    /* centreren met grid */
+  background: #111;
+  color: #fff;
+  z-index: 9999;
 }
 
-/* H1 zonder extra marge */
 #thankYouScreen h1 {
   margin: 0;
   font-size: 2.5em;
