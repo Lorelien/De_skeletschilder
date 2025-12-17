@@ -290,15 +290,27 @@ body {
   50% { transform: rotate(3deg); }
 }
 
-#thankYouScreen {
+/* #thankYouScreen {
   position: fixed;
   inset: 0;
   display: none;          /* standaard verborgen */
-  place-items: center;    /* centreren met grid */
+  /* place-items: center;    /* centreren met grid */
+  /* background: #111;
+  color: #fff;
+  z-index: 9999;
+/* } */
+
+#thankYouScreen {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background: #111;
   color: #fff;
   z-index: 9999;
 }
+
 
 #thankYouScreen h1 {
   margin: 0;
