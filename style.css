@@ -184,7 +184,12 @@ body {
 }
 
 /* Object-specifieke stijlen */
-#schelp { width: 15%; height: 20%; }
+#schelp { 
+  width: 15%; 
+  height: 20%; 
+  cursor: default;   /* geen handje, gewoon standaard cursor */
+  pointer-events: none; /* maakt het niet klikbaar */
+}
 
 #bloem {
   position: absolute;
